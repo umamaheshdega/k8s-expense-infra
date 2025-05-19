@@ -41,7 +41,7 @@ pipeline {
                             terraform destroy -auto-approve
                         fi
                     """ */
-                     if (params.action == 'apply') {
+                     if (params.ACTION == 'apply') {
                         sh """
                             cd 70-ingress-alb
                             terraform apply -auto-approve
@@ -58,6 +58,9 @@ pipeline {
             }
         }
         stage('Destroy Infra') {
+            when { 
+                expression { params.ACTION == 'destroy'}
+            }
             steps {
                script{
                 withAWS(region: 'us-east-1', credentials: 'aws-creds') {
