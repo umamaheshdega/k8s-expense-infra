@@ -21,7 +21,7 @@ pipeline {
                     sh """
                         cd 70-ingress-alb
                         terraform init -reconfigure
-                        terraform plan
+                        
                     """
                 }
                  
@@ -36,6 +36,7 @@ pipeline {
                      if (params.ACTION == 'apply') {
                         sh """
                             cd 70-ingress-alb
+                            terraform plan
                             terraform apply -auto-approve
                         """
                     } else {
