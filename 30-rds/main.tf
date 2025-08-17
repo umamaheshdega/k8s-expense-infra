@@ -10,7 +10,7 @@ module "db" {
   db_name  = "transactions" # AWS will create this schema automatically
   username = "root"
   port     = "3306"
-  password = "ExpenseApp1"
+  password = var.password
   manage_master_user_password = false
 
   vpc_security_group_ids = [local.mysql_sg_id]
@@ -73,3 +73,6 @@ resource "aws_route53_record" "www-dev" {
   records = [module.db.db_instance_address]
   allow_overwrite = true
 }
+
+
+
