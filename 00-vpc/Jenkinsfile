@@ -28,7 +28,7 @@ pipeline {
                }
             }
         }
-        stage('Apply') {
+        stage('destroy') {
             input {
                 message "Should we continue?"
                 ok "Yes, we should."
@@ -38,7 +38,7 @@ pipeline {
                 withAWS(region: 'us-east-1', credentials: 'aws-creds') {
                     sh """
                         cd 00-vpc
-                        terraform apply -auto-approve
+                        terraform destroy -auto-approve
                     """
                 }
                  
