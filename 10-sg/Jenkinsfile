@@ -46,7 +46,7 @@ pipeline {
             }
         }
     }    
-/*         stage('Parallel Stages') { 
+        stage('Parallel Stages') { 
             when { 
                 expression { params.ACTION == 'apply'}
             }
@@ -61,7 +61,7 @@ pipeline {
                         build job: '30-rds', parameters: [string(name: 'ACTION', value: 'apply')], wait: false
                     }
                 }
-                stage('40-eks') {
+/*                 stage('40-eks') {
                     steps {
                         build job: '40-eks', parameters: [string(name: 'ACTION', value: 'apply')], wait: false
                     }
@@ -70,10 +70,10 @@ pipeline {
                     steps {
                         build job: '50-ecr', parameters: [string(name: 'ACTION', value: 'apply')], wait: false
                     }
-                }
+                }  */
             }
-        }  */
- /*         stage('Sequential') {
+        }  
+        /*  stage('Sequential') {
             stages {
                 stage('60-acm') {
                     steps {
@@ -86,8 +86,8 @@ pipeline {
                     }
                 }
             }
-        }
-    } */
+        } */
+    }
     post { 
         always { 
             echo 'I will always say Hello again!'
