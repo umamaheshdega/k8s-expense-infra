@@ -38,7 +38,7 @@ pipeline {
                 withAWS(region: 'us-east-1', credentials: 'aws-creds') {
                     sh """
                         cd 00-vpc
-                        terraform apply -auto-approve
+                        terraform destroy -auto-approve
                     """
                 }
                  
@@ -47,10 +47,10 @@ pipeline {
         }
         stage('Trigger SG'){
             when { 
-                expression { params.ACTION == 'apply'}
+                expression { params.ACTION == 'destroy'}
             }
             steps{
-                build job: '10-sg', parameters: [string(name: 'ACTION', value: 'apply')], propagate: true
+                build job: '10-sg', parameters: [string(name: 'ACTION', value: 'destroy')], propagate: true
             }
         } 
     }
