@@ -23,9 +23,4 @@ variable "domain_name" {
 }
 
 
-variable "password" {
-  description = "RDS master password"
-  type        = string
-  sensitive   = true
-}
 
