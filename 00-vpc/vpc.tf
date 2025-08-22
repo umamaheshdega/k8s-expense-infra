@@ -14,7 +14,7 @@ module "vpc" {
 
 # this can be included in module
 resource "aws_db_subnet_group" "expense" {
-  name       = "${var.project_name}-${var.environment}"
+  name       = "${var.project_name}-${var.environment}-db-subnet-group"
   subnet_ids = module.vpc.database_subnet_ids
 
   tags = merge(
