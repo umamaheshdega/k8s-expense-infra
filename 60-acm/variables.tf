@@ -19,5 +19,5 @@ variable "domain_name" {
 }
 
 variable "zone_id" {
-    default = "Z000063939MD4K8HB2GI8"
+    default = "Z07041151VR5YSK23L90N"
 }
