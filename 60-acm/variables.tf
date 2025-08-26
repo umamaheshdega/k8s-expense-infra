@@ -15,7 +15,7 @@ variable "common_tags" {
 }
 
 variable "domain_name" {
-    default = "maheshdevops.info"
+    default = "maheshdevops.store"
 }
 
 variable "zone_id" {

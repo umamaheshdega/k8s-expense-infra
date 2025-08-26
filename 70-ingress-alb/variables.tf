@@ -20,5 +20,5 @@ variable "zone_id" {
 }
 
 variable "domain_name" {
-    default = "maheshdevops.info"
+    default = "maheshdevops.store"
 }
